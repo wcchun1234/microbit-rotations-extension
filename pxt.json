@@ -1,11 +1,15 @@
 {
   "name": "Reel Rotations Counter",
-  "description": "An extension for counting the number of motor rotations.",
+  "version": "1.2.3",
+  "description": "An extension for tracking motor rotations.",
   "dependencies": {
     "core": "*",
     "kitronik-move-motor": "github:KitronikLtd/pxt-kitronik-move-motor"
   },
   "files": [
     "main.ts"
+  ],
+  "supportedTargets": [
+    "microbit"
   ]
 }
