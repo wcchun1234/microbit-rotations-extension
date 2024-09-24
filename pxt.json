@@ -1,6 +1,6 @@
 {
     "name": "Motor Rotations",
-    "description": "An extension to track and display motor rotations.",
+    "description": "An extension to track and display motor rotations. v0.0.10",
     "license": "MIT",
     "dependencies": {
         "core": "*",
