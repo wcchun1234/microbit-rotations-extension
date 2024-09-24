@@ -1,6 +1,6 @@
 {
   "name": "Reel Rotations Counter",
-  "version": "1.2.0",
+  "version": "1.2.1",
   "description": "A simple extension to count rotations without using the Kitronik Move Motor.",
   "license": "MIT",
   "dependencies": {
