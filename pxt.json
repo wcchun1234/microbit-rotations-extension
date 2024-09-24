@@ -1,11 +1,13 @@
 {
   "name": "microbit-rotations-extension",
   "version": "1.0.0",
-  "description": "An extension to track and display motor rotations.",
+  "description": "An extension to control motor rotations using the BBC Micro:bit.",
   "dependencies": {
     "core": "*"
   },
   "files": [
     "main.ts"
-  ]
+  ],
+  "testFiles": [],
+  "public": true
 }
