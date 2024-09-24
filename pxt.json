@@ -1,15 +1,14 @@
 {
   "name": "Reel Rotations",
   "version": "1.0.0",
-  "description": "An extension to calculate the number of reel rotations based on motor speed and elapsed time.",
+  "description": "An extension to start, stop, and calculate motor reel rotations.",
   "license": "MIT",
   "dependencies": {
     "core": "*",
     "Kitronik_Move_Motor": "github:kitronikltd/pxt-kitronik-move-motor"
   },
   "files": [
-    "main.ts",
-    "README.md"
+    "main.ts"
   ],
   "supportedTargets": [
     "microbit"
