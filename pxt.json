@@ -4,7 +4,7 @@
   "description": "An extension to track and display motor rotations.",
   "dependencies": {
     "core": "*",
-    "Kitronik_Move_Motor": "*"
+    "kitronik_move_motor": "*"
   },
   "files": [
     "main.ts"
