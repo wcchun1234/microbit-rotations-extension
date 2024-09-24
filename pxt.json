@@ -1,10 +1,10 @@
 {
   "name": "Reel Rotations Counter",
-  "version": "1.2.1",
-  "description": "A simple extension to count rotations without using the Kitronik Move Motor.",
-  "license": "MIT",
+  "version": "1.2.2",
+  "description": "An extension for tracking motor rotations.",
   "dependencies": {
-    "core": "*"
+    "core": "*",
+    "kitronik-move-motor": "github:KitronikLtd/pxt-kitronik-move-motor"
   },
   "files": [
     "main.ts"
