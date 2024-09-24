@@ -2,10 +2,15 @@
   "name": "microbit-rotations-extension",
   "version": "0.0.1",
   "description": "An extension to track and display motor rotations.",
+  "license": "MIT",
   "dependencies": {
     "core": "*"
   },
   "files": [
     "main.ts"
-  ]
+  ],
+  "supportedTargets": [
+    "microbit"
+  ],
+  "public": true
 }
