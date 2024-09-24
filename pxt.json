@@ -1,11 +1,11 @@
 {
-  "name": "Reel Rotations",
+  "name": "Reel Rotations Counter",
   "version": "1.0.0",
-  "description": "An extension to start, stop, and calculate motor reel rotations.",
+  "description": "An extension to control motors and track rotations using the Kitronik Move Motor extension.",
   "license": "MIT",
   "dependencies": {
     "core": "*",
-    "Kitronik_Move_Motor": "github:kitronikltd/pxt-kitronik-move-motor"
+    "Kitronik_Move_Motor": "github:KitronikLtd/pxt-kitronik-move-motor"
   },
   "files": [
     "main.ts"
