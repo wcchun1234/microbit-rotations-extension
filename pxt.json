@@ -1,7 +1,7 @@
 {
   "name": "microbit-rotations-extension",
   "version": "1.0.0",
-  "description": "Extension to control motor rotations using BBC micro:bit",
+  "description": "An extension to control motor rotations using the BBC Micro:bit.",
   "dependencies": {
     "core": "*"
   },
