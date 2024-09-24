@@ -1,7 +1,7 @@
 {
   "name": "Reel Rotations Counter",
-  "version": "1.0.1",
-  "description": "An extension to control motors and track rotations using the Kitronik Move Motor extension.",
+  "version": "1.0.2",
+  "description": "An extension to control motors and track rotations based on time and motor speed.",
   "license": "MIT",
   "dependencies": {
     "core": "*",
