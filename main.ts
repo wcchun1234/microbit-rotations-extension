@@ -18,7 +18,7 @@ namespace ReelRotationCounter {
         motorRunning = false;
     }
 
-    // Function to calculate rotations based on time and assumed speed
+    // Function to calculate rotations based on time and speed
     export function getRotations(speed: number): number {
         if (motorRunning) {
             let elapsedTime = (control.millis() - startTime) / 1000;  // seconds
