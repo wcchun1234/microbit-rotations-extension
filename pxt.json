@@ -1,12 +1,11 @@
 {
-    "name": "Motor Rotations",
-    "description": "An extension to track and display motor rotations.",
-    "license": "MIT",
-    "dependencies": {
-        "core": "*",
-        "kitronik-move-motor": "github:kitronikltd/pxt-kitronik-move-motor#v0.0.10"
-    },
-    "files": [
-        "main.ts"
-    ]
+  "name": "microbit-rotations-extension",
+  "version": "1.0.0",
+  "description": "An extension to track and display motor rotations.",
+  "dependencies": {
+    "core": "*"
+  },
+  "files": [
+    "main.ts"
+  ]
 }
