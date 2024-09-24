@@ -1,10 +1,10 @@
 {
   "name": "microbit-rotations-extension",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "An extension to track and display motor rotations for Kitronik Move Motor.",
   "dependencies": {
     "core": "*",
-    "Kitronik_Move_Motor": "*"  // Ensure this dependency is listed correctly
+    "Kitronik_Move_Motor": "*"
   },
   "files": [
     "main.ts"
