@@ -3,7 +3,7 @@ namespace motorRotations {
     let startTime = 0               // Time when the motor started
     let motorRunning = false        // To check if the motor is running
     let rotations = 0               // Number of rotations
-    let motorFullSpeedRPM = 120     // Motor's RPM at full speed
+    let motorFullSpeedRPM = 120     // Motor's RPM at full speed (adjust if necessary)
 
     /**
      * Start the motor at the specified speed (0-100%).
@@ -13,10 +13,10 @@ namespace motorRotations {
     //% speed.min=0 speed.max=100
     export function startMotor(speed: number): void {
         rotations = 0                  // Reset rotations
-        startTime = control.millis()    // Get the current time in milliseconds
-        motorRunning = true             // Indicate that the motor is running
+        startTime = control.millis()    // Get the start time in milliseconds
+        motorRunning = true             // Set the motor as running
 
-        // Start the motor using the Kitronik Move Motor library
+        // Start the motor using Kitronik Move Motor library
         Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, speed)
     }
 
@@ -27,7 +27,7 @@ namespace motorRotations {
     export function stopMotor(): void {
         // Stop the motor by setting speed to 0
         Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, 0)
-        motorRunning = false             // Indicate that the motor is not running
+        motorRunning = false             // Set the motor as not running
     }
 
     /**
@@ -39,7 +39,7 @@ namespace motorRotations {
             // Calculate the elapsed time in seconds since the motor started
             let elapsedSeconds = (control.millis() - startTime) / 1000
 
-            // Calculate the motor's RPM based on the speed (as a percentage of full speed)
+            // Calculate the motor's RPM based on the speed (percentage of full speed)
             let rpm = (motorFullSpeedRPM * Kitronik_Move_Motor.getSpeed() / 100)
 
             // Calculate the number of rotations based on RPM and elapsed time
