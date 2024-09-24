@@ -1,10 +1,10 @@
 {
-    "name": "Reel Rotations",
-    "description": "Calculate reel rotations.",
-    "dependencies": {
-        "core": "*"
-    },
-    "files": [
-        "main.ts"
-    ]
+  "name": "Reel Rotations",
+  "description": "An extension for reel rotations.",
+  "dependencies": {
+    "core": "*"
+  },
+  "files": [
+    "main.ts"
+  ]
 }
