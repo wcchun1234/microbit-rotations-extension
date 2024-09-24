@@ -1,39 +1,44 @@
+// Variables to track rotations and motor state
+let rotations = 0
+let motorRunning = false
+let startTime = 0
+let motorFullSpeedRPM = 120
+
+// Function to start motor and track rotations
+function startMotorAndTrack(speed: number) {
+    rotations = 0
+    startTime = control.millis()
+    motorRunning = true
+    Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, speed)
+}
+
+// Function to stop the motor
+function stopMotor() {
+    motorRunning = false
+    Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, 0)
+}
+
+// Function to get the number of rotations
+function getRotations(): number {
+    if (motorRunning) {
+        let elapsedSeconds = (control.millis() - startTime) / 1000
+        let rpm = 50 * (motorFullSpeedRPM / 100)  // assuming speed 50% for example
+        rotations = rpm / 60 * elapsedSeconds
+    }
+    return Math.floor(rotations)
+}
+
+// Make the functions available to students
 namespace ReelRotationCounter {
-    let motorRunning = false;
-    let startTime = 0;
-    let rotations = 0;
-    let rpm = 0;
-    let elapsedSeconds = 0;
-    let motorFullSpeedRPM = 120;
-
-    //% blockId="start_motor_and_track" block="start motor and track at speed %speed"
-    export function startMotorAndTrackRotations(speed: number): void {
-        rotations = 0;
-        startTime = control.millis();
-        motorRunning = true;
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, speed);
+    export function startMotorAndTrack(speed: number) {
+        startMotorAndTrack(speed)
     }
 
-    //% blockId="stop_motor" block="stop motor"
-    export function stopMotor(): void {
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, 0);
-        motorRunning = false;
-        startTime = 0;
+    export function stopMotor() {
+        stopMotor()
     }
 
-    //% blockId="get_rotations" block="get rotations"
     export function getRotations(): number {
-        if (motorRunning) {
-            elapsedSeconds = (control.millis() - startTime) / 1000;
-            rpm = speed * (motorFullSpeedRPM / 100);
-            rotations = (rpm / 60) * elapsedSeconds;
-            return Math.floor(rotations);
-        }
-        return 0;
-    }
-
-    //% blockId="is_motor_running" block="is motor running"
-    export function isMotorRunning(): boolean {
-        return motorRunning;
+        return getRotations()
     }
 }
