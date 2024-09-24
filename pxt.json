@@ -1,16 +1,15 @@
 {
-  "name": "microbit-rotations-extension",
+  "name": "Reel Rotations Counter",
   "version": "3.0.0",
-  "description": "A custom extension for counting wheel rotations on a motorized micro:bit car.",
-  "license": "MIT",
+  "description": "An extension for tracking motor rotations.",
   "dependencies": {
     "core": "*",
-    "kitronik-move-motor": "github:KitronikLtd/pxt-kitronik-move-motor#v1.0.0"
+    "kitronik-move-motor": "github:KitronikLtd/pxt-kitronik-move-motor"
   },
   "files": [
-    "main.ts",
-    "README.md"
+    "main.ts"
   ],
-  "testFiles": [],
-  "public": true
+  "supportedTargets": [
+    "microbit"
+  ]
 }
