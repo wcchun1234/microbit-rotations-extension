@@ -1,31 +1,49 @@
-//% weight=100 color=#0fbc11 icon="\uf013" block="Motor Rotations"
-namespace motorRotations {
-    let startTime = 0
-    let motorRunning = false
-    let rotations = 0
-    let motorFullSpeedRPM = 120
+let startTime = 0        // This will store the time when the motor starts
+let rotations = 0        // This will store the number of rotations
+let motorRunning = false // A flag to track if the motor is running
+let motorFullSpeedRPM = 120 // Motor's RPM at full speed (adjust this based on your motor's specification)
+let speed = 0            // Current speed of the motor
 
-    //% block="start motor at speed %speed"
-    export function startMotor(speed: number): void {
-        rotations = 0
-        startTime = control.millis()
-        motorRunning = true
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, speed)
-    }
+//% block="start motor at speed %speed"
+//% speed.min=0 speed.max=100
+export function startMotor(speed: number): void {
+    rotations = 0         // Reset the rotation count
+    startTime = control.millis()  // Record the current time (in milliseconds) when the motor starts
+    motorRunning = true    // Set the flag to true when the motor is running
 
-    //% block="stop motor"
-    export function stopMotor(): void {
-        Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, 0)
-        motorRunning = false
-    }
+    // Start the motor using the speed parameter
+    pins.analogWritePin(AnalogPin.P0, Math.map(speed, 0, 100, 0, 1023)) // Assuming motor is connected to Pin P0
+    console.log("Motor started at speed: " + speed)
+}
 
-    //% block="show number of rotations"
-    export function showRotations(): void {
-        if (motorRunning) {
-            let elapsedSeconds = (control.millis() - startTime) / 1000
-            let rpm = motorFullSpeedRPM * (120 / 100)
-            rotations = (rpm / 60) * elapsedSeconds
-            basic.showNumber(Math.floor(rotations))
-        }
+//% block="stop motor"
+export function stopMotor(): void {
+    motorRunning = false   // Set the flag to false to stop tracking rotations
+    pins.analogWritePin(AnalogPin.P0, 0)  // Stop the motor by setting pin P0 to 0
+    startTime = 0          // Reset the start time
+    console.log("Motor stopped")
+}
+
+//% block="show number of rotations"
+export function showRotations(): void {
+    if (motorRunning) {
+        // Calculate how many seconds have passed since the motor started
+        let elapsedSeconds = (control.millis() - startTime) / 1000
+
+        // Estimate the motor's RPM based on the speed (motorFullSpeedRPM is the max RPM at full speed)
+        let rpm = speed * (motorFullSpeedRPM / 100)
+
+        // Calculate the number of rotations based on the RPM and time that has passed
+        rotations = (rpm / 60) * elapsedSeconds
+
+        // Display the integer part of the number of rotations on the micro:bit's LED display
+        basic.showNumber(Math.floor(rotations))
+        console.log("Rotations: " + rotations)
     }
+}
+
+//% block="reset rotations"
+export function resetRotations(): void {
+    rotations = 0  // Reset the rotation count to zero
+    console.log("Rotations reset")
 }
