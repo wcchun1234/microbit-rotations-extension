@@ -1,6 +1,6 @@
 {
     "name": "Reel Rotations",
-    "description": "An extension to calculate the number of reel rotations based on motor speed and elapsed time.",
+    "description": "Calculate reel rotations.",
     "dependencies": {
         "core": "*"
     },
