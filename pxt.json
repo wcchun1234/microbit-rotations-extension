@@ -1,6 +1,6 @@
 {
   "name": "microbit-rotations-extension",
-  "version": "0.0.1",
+  "version": "3.0.0",
   "description": "A custom extension for counting wheel rotations on a motorized micro:bit car.",
   "license": "MIT",
   "dependencies": {
