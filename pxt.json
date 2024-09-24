@@ -4,7 +4,7 @@
   "description": "An extension to control motor rotations using the BBC Micro:bit.",
   "dependencies": {
     "core": "*"
-  } // Missing comma here
+  },
   "files": [
     "main.ts"
   ],
