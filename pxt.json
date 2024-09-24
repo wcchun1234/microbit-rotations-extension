@@ -1,6 +1,6 @@
 {
   "name": "Reel Rotations Counter",
-  "version": "3.0.0",
+  "version": "3.0.1",
   "description": "An extension for tracking motor rotations.",
   "dependencies": {
     "core": "*",
