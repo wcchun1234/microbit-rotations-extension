@@ -21,3 +21,15 @@ function stopMotorAndGetRotations(): number {
     rotations = rpm / 60 * elapsedSeconds
     return Math.floor(rotations)
 }
+
+//% block="start motor and track at speed %speed"
+//% speed.min=0 speed.max=100
+export function startMotor(speed: number): void {
+    startMotorAndTrackRotations(speed)
+}
+
+//% block="stop motor and show rotations"
+//% blockSetVariable="rotations"
+export function getRotations(): number {
+    return stopMotorAndGetRotations()
+}
