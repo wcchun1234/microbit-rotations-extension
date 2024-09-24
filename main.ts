@@ -2,6 +2,7 @@ namespace ReelRotationCounter {
     let rotations = 0;
     let motorRunning = false;
     let startTime = 0;
+    const motorFullSpeedRPM = 120;
 
     // Function to start motor and track rotations
     export function startMotor(speed: number): void {
@@ -17,14 +18,14 @@ namespace ReelRotationCounter {
         motorRunning = false;
     }
 
-    // Function to calculate rotations based on the motor's speed and time
+    // Function to calculate rotations based on time
     export function getRotations(): number {
         if (motorRunning) {
             let elapsedTime = (control.millis() - startTime) / 1000;  // seconds
-            let rpm = Kitronik_Move_Motor.readWheelEncoder();  // This should read the wheel encoder from the Kitronik extension
+            let rpm = (motorFullSpeedRPM * Kitronik_Move_Motor.readCurrentSpeed()) / 100; // Calculate RPM based on speed
             rotations = (rpm / 60) * elapsedTime;
             return Math.floor(rotations);
         }
-        return rotations;
+        return 0;
     }
 }
