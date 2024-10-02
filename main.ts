@@ -23,7 +23,7 @@ namespace ReelRotationCounter {
         motorRunning = false;
 
         if (intervalId !== null) {
-            control.clearInterval(intervalId);
+            control.clearInterval(intervalId, control.IntervalMode.Interval);
             intervalId = null;
         }
     }
