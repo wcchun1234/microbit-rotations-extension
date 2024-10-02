@@ -10,7 +10,7 @@ namespace ReelRotationCounter {
             motorRunning = true;
 
             // Set motor speed (assuming Kitronik motor driver or similar)
-            Kitronik_Move_Motor.move(Kitronik_Move_Motor.MotorDirection.Forward, 100);
+            Kitronik_Move_Motor.move(Kitronik_Move_Motor.DriveDirections.Forward, 100);
 
             // Start a timer to simulate counting rotations
             intervalId = control.setInterval(() => {
