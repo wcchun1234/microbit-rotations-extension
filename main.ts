@@ -4,8 +4,8 @@ namespace ReelRotationCounter {
     let intervalId: number = null;
 
     /**
-     * Start the motor with the specified speed for forward movement.
-     * @param speed Speed of the motor, eg: 100
+     * Start the motors for forward movement with the specified speed.
+     * @param speed Speed of the motor, eg: 50
      */
     //% blockId="reel_rotations_startMotor" block="start motor at speed %speed"
     //% speed.min=0 speed.max=100
@@ -14,14 +14,15 @@ namespace ReelRotationCounter {
             rotations = 0;
             motorRunning = true;
 
-            // Set motors to move in opposite directions for forward movement
+            // Set left motor to turn in one direction and right motor in the opposite direction for forward movement
             Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Left, speed);
             Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Right, speed);
 
             // Start a timer to simulate counting rotations
             intervalId = control.setInterval(() => {
                 if (motorRunning) {
-                    rotations++;
+                    // Rotation count will vary with speed
+                    rotations += Math.round(speed / 10); // Assuming speed proportional to rotation speed
                 }
             }, 1000, control.IntervalMode.Interval); // Adjust interval as needed for real motor speed
         }
