@@ -1,3 +1,4 @@
+//% blockNamespace="ReelRotationCounter"
 namespace ReelRotationCounter {
     let rotations = 0;
     let motorRunning = false;
@@ -39,5 +40,3 @@ namespace ReelRotationCounter {
         return rotations;
     }
 }
-
-// version 11:35pm
