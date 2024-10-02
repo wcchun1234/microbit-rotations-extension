@@ -9,6 +9,9 @@ namespace ReelRotationCounter {
             rotations = 0;
             motorRunning = true;
 
+            // Set motor speed (assuming Kitronik motor driver or similar)
+            Kitronik_Move_Motor.motorOn(Kitronik_Move_Motor.Motors.Motor1, Kitronik_Move_Motor.MotorDirection.Forward, 100);
+
             // Start a timer to simulate counting rotations
             intervalId = control.setInterval(() => {
                 if (motorRunning) {
@@ -21,6 +24,9 @@ namespace ReelRotationCounter {
     //% blockId="reel_rotations_stopMotor" block="stop motor"
     export function stopMotor(): void {
         motorRunning = false;
+
+        // Stop the motor
+        Kitronik_Move_Motor.motorOff(Kitronik_Move_Motor.Motors.Motor1);
 
         if (intervalId !== null) {
             control.clearInterval(intervalId, control.IntervalMode.Interval);
