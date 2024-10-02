@@ -1,17 +1,22 @@
-//% blockNamespace="ReelRotationCounter"
 namespace ReelRotationCounter {
     let rotations = 0;
     let motorRunning = false;
     let intervalId: number = null;
 
-    //% blockId="reel_rotations_startMotor" block="start motor"
-    export function startMotor(): void {
+    /**
+     * Start the motor with the specified speed and direction.
+     * @param speed Speed of the motor, eg: 100
+     * @param direction Direction of the motor, eg: Kitronik_Move_Motor.SpinDirections.Left
+     */
+    //% blockId="reel_rotations_startMotor" block="start motor at speed %speed direction %direction"
+    //% speed.min=0 speed.max=100
+    export function startMotor(speed: number, direction: Kitronik_Move_Motor.SpinDirections): void {
         if (!motorRunning) {
             rotations = 0;
             motorRunning = true;
 
-            // Set motor speed (using Kitronik motor driver or similar)
-            Kitronik_Move_Motor.spin(Kitronik_Move_Motor.SpinDirections.Left, 100); // Adjust speed/direction as necessary
+            // Set motor speed and direction for both motors to move in the same direction
+            Kitronik_Move_Motor.spin(direction, speed);
 
             // Start a timer to simulate counting rotations
             intervalId = control.setInterval(() => {
@@ -26,7 +31,7 @@ namespace ReelRotationCounter {
     export function stopMotor(): void {
         motorRunning = false;
 
-        // Stop the motor
+        // Stop both motors
         Kitronik_Move_Motor.stop();
 
         if (intervalId !== null) {
