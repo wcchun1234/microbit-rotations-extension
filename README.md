@@ -55,7 +55,11 @@ This will start both motors moving forward at 50% speed, making the car move in 
 
 -  **Usage Example**:
 
+```javascript
+
 ReelRotationCounter.stopMotor();
+
+```
 
 This will immediately stop both motors.
 
@@ -67,9 +71,13 @@ This will immediately stop both motors.
 
 -  **Usage Example**:
 
+```javascript
+
 let rotations = ReelRotationCounter.getRotations();
 
 basic.showNumber(rotations);
+
+```
 
 This will display the number of rotations counted while the motor was running.
 
@@ -78,6 +86,7 @@ This will display the number of rotations counted while the motor was running.
 Here's a complete example of how you can use this extension to control the motors and display the number of rotations:
 
 **Example Code**
+```javascript
 
 let rotations = 0;
 
@@ -112,6 +121,8 @@ input.onButtonPressed(Button.AB, function () {
  basic.showNumber(rotations);
 
 });
+
+```
 
 **Explanation**
 
