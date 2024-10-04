@@ -1,56 +1,150 @@
 # microbit-rotations-extension
 
-This extension allows you to control a motor and track its rotations using the BBC micro:bit. It provides simple blocks for starting, stopping, and monitoring motor rotations, making it easier to create projects involving motor control.
+## Overview
 
----
+The ****microbit-rotations-extension**** is a custom extension for the BBC micro:bit, designed to control a motorized car using the Kitronik Motor Driver. This extension provides easy-to-use blocks for starting and stopping the motor, adjusting speed and direction, and counting the number of wheel rotations based on speed. This makes it suitable for learning how to integrate programming and hardware control to create interactive and fun robotics projects.
 
-## Features
+### Key Features
 
-- **Start and stop a motor** at a specific speed.
-- **Track the number of rotations** completed by the motor.
-- **Display** the rotation count on the micro:bit's LED matrix.
+- ****Motor Control****: Start and stop motors using simple commands.
 
----
+- ****Speed and Direction****: Control the speed and direction of each motor.
 
-## How to Use
+- ****Rotation Counting****: Keep track of wheel rotations, with speed-based adjustments for accurate estimation.
 
-### Step 1: Import the Extension
+## Installation
 
-1. Open the [MakeCode Editor for micro:bit](https://makecode.microbit.org/).
-2. Create a new project.
-3. Click on the **gear icon (⚙️)** in the top-right corner of the editor and select **Extensions**.
-4. In the search box, paste the following URL and press Enter:
-https://github.com/wcchun1234/microbit-rotations-extension
-5. Select the **microbit-rotations-extension** from the list to import it into your project.
+To use this extension in the MakeCode editor:
 
-### Step 2: Use the Blocks
+1. Open the [Microsoft MakeCode](https://makecode.microbit.org) editor.
 
-Once the extension is imported, you will see a new category called **Rotations** in the block editor. You can use the blocks from this category to control and monitor motor rotations.
+2. Go to ****Extensions**** under the gear icon menu.
 
----
+3. Search for your repository by entering the following URL:
 
-## Blocks Overview
+https://github.com/wcchun1234/microbit-rotations-extension/
 
-### 1. **Start Motor**
+4. Click on the extension to add it to your MakeCode project.
 
-```typescript
-startMotor(speed: number)
-Description: Starts the motor at the specified speed. The speed can be positive or negative to control the direction of the motor.
-Example:
-// Start the motor at speed 100
-startMotor(100);
+## Blocks Included
 
-2. Stop Motor
-stopMotor()
-Description: Stops the motor from running.
-Example:
-// Stop the motor
-stopMotor();
+### 1. Start Motor
 
-3. Show Rotations
-showRotations()
-Description: Displays the number of rotations completed by the motor on the micro:bit's LED display.
-Example:
+- **Block Name**: `start motor at speed %speed`
 
-// Show the number of rotations on the micro:bit
-showRotations();
+- **Description**: Starts the motors at the specified speed, allowing the car to move forward.
+
+- **Parameters**:
+
+- `speed` (0-100): Sets the speed of the motors.
+
+- **Usage Example**:
+
+```javascript
+
+ReelRotationCounter.startMotor(50);
+```
+
+This will start both motors moving forward at 50% speed, making the car move in a straight line.
+
+**2\. Stop Motor**
+
+-  **Block Name**: stop motor
+
+-  **Description**: Stops both motors, bringing the car to a halt.
+
+-  **Usage Example**:
+
+ReelRotationCounter.stopMotor();
+
+This will immediately stop both motors.
+
+**3\. Get Rotations**
+
+-  **Block Name**: get rotations
+
+-  **Description**: Returns the current number of rotations since the motor was started.
+
+-  **Usage Example**:
+
+let rotations = ReelRotationCounter.getRotations();
+
+basic.showNumber(rotations);
+
+This will display the number of rotations counted while the motor was running.
+
+**Example Usage**
+
+Here's a complete example of how you can use this extension to control the motors and display the number of rotations:
+
+**Example Code**
+
+let rotations = 0;
+
+input.onButtonPressed(Button.A, function () {
+
+ // Start motor at speed 50 for forward movement
+
+ ReelRotationCounter.startMotor(50);
+
+ basic.showString("Motor Started");
+
+});
+
+input.onButtonPressed(Button.B, function () {
+
+ // Stop the motor
+
+ ReelRotationCounter.stopMotor();
+
+ basic.showString("Motor Stopped");
+
+});
+
+input.onButtonPressed(Button.AB, function () {
+
+ // Display the number of rotations
+
+ rotations = ReelRotationCounter.getRotations();
+
+ basic.showString("Rotations: ");
+
+ basic.showNumber(rotations);
+
+});
+
+**Explanation**
+
+-  **Button A Pressed**: Starts the motors at speed 50, making the car move forward. A message "Motor Started" is displayed.
+
+-  **Button B Pressed**: Stops the motors, and "Motor Stopped" is displayed.
+
+-  **Button A+B Pressed**: Displays the number of rotations counted while the motors were running.
+
+**Usage Tips**
+
+-  **Direction Control**: The motors are configured to move the car forward by default. If you want to change the direction, you can modify the motor directions in the startMotor() function.
+
+-  **Speed Adjustment**: Adjust the speed parameter (0-100) to control how fast the car moves. A higher value will make the car move faster and will also impact the rotation count.
+
+-  **Counting Rotations**: The rotation count is an estimate based on speed. If you need precise measurements, consider adding an encoder to the motor.
+
+**Troubleshooting**
+
+-  **Car Turns Instead of Moving Forward**: Ensure that the motors are set to rotate in opposite directions for forward movement. The left motor should spin forward while the right motor should spin in the same forward direction.
+
+-  **Inaccurate Rotation Count**: The count is speed-based and may vary depending on surface friction or battery levels. Fine-tune the rotation count factor (speed / 10) if needed for more accurate results.
+
+**License**
+
+This project is licensed under the MIT License - see the <LICENSE> file for details.
+
+**Contributing**
+
+Contributions are welcome! Feel free to submit issues or pull requests to improve this extension.
+
+**Contact**
+
+If you have any questions or need further assistance, please feel free to reach out through the GitHub repository.
+
+This updated version ensures consistent formatting throughout, making it easy to read, copy, and use. Let me know if you need anything else!
