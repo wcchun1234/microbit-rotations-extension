@@ -157,5 +157,3 @@ Contributions are welcome! Feel free to submit issues or pull requests to improv
 **Contact**
 
 If you have any questions or need further assistance, please feel free to reach out through the GitHub repository.
-
-This updated version ensures consistent formatting throughout, making it easy to read, copy, and use. Let me know if you need anything else!
